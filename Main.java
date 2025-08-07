@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.*;
  
 public class Main {
     public static void main(String[] args) {
@@ -53,6 +54,28 @@ public class Main {
 
         myList.remove(2);    
         System.out.println(myList.size() + " = " + myList); 
+        myList.add(80);
+        myList.add(20);
+        System.out.println(myList.size() + " = " + myList); 
+
+        //ARRAYLIST SORT IN ASCENDING ORDER USING COMPARATOR
+        myList.sort(Comparator.naturalOrder());
+        System.out.println(myList.size() + " = " + myList); 
+
+        //ARRAYLIST SORT IN DESCENDING ORDER USING COMPARATOR
+        myList.sort(Comparator.reverseOrder());
+        System.out.println(myList.size() + " = " + myList); 
+
+        //ARRAYLIST SORT IN EVEN NUMBERS FIRST
+        ArrayList<Integer> myList2 = new ArrayList<>(Arrays.asList(5,2,9,1,3,10,6,11));
+        myList2.sort((a, b) -> {
+                // Even numbers come first
+                if (a % 2 == 0 && b % 2 != 0) return -1;
+                if (a % 2 != 0 && b % 2 == 0) return 1;
+                return a - b;  // Normal comparison if both even or both odd
+            });
+        System.out.println(myList2.size() + " = " + myList2); 
+
 
 
         //YOUR TURN #4
