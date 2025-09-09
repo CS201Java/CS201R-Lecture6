@@ -64,6 +64,14 @@ public class Main {
         Arrays.fill(arr8, 99);
         System.out.println("arr8 after Arrays.fill) = " + Arrays.toString(arr8));
 
+        int[] arr9 = new int[5];
+        System.arraycopy(arr1,0,arr9,0,3);
+        System.out.println("Arrays.toString(arr9)   = " + Arrays.toString(arr9));
+
+        int[] arr10 = arr1;
+        System.out.println("arr1.hashCode()  = " + arr1.hashCode());
+        System.out.println("arr10.hashCode() = " + arr10.hashCode());
+        
         //ARRAYS - YOUR TURN #3
         int[] deck = new int[52];
         
