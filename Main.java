@@ -39,38 +39,50 @@ public class Main {
         System.out.println("arr2.hashCode() = " + arr2.hashCode());
         System.out.println("arr3.hashCode() = " + arr3.hashCode());
         System.out.println("arr1.toString() = " + arr1.toString());
-        System.out.println("arr1.equals(arr2) = " + arr1.equals(arr2));
         System.out.println("arr1.getClass()   = " + arr1.getClass());
 
-        System.out.println("Arrays.toString(arr1)       = " + Arrays.toString(arr1));
+        System.out.println("\nArrays.toString(arr1)       = " + Arrays.toString(arr1));
+        System.out.println("Arrays.toString(arr2)       = " + Arrays.toString(arr2));
+        arr2[3] = 17;
+        System.out.println("\nArrays.toString(arr1)       = " + Arrays.toString(arr1));
+        System.out.println("Arrays.toString(arr2)       = " + Arrays.toString(arr2));        
 
-        System.out.println("Arrays.equals(arr1, arr2))  = " + Arrays.equals(arr1, arr2) + "\tvs arr1 == aar2: " + (arr1 == arr2));
-        System.out.println("Arrays.equals(arr1, arr3))  = " + Arrays.equals(arr1, arr3) + "\tvs arr1 == aar3: " + (arr1 == arr3));
-        System.out.println("Arrays.equals(arr3, arr4))  = " + Arrays.equals(arr3, arr4) + "\tvs arr3 == aar4: " + (arr3 == arr4));
+        System.out.println("\nArrays.equals(arr1, arr2))  = " + Arrays.equals(arr1, arr2) + "\tvs arr1 == aar2: " + (arr1 == arr2) + "\tvs arr1.equals(arr2) = " + arr1.equals(arr2));
+        System.out.println("Arrays.equals(arr1, arr3))  = " + Arrays.equals(arr1, arr3) + "\tvs arr1 == aar3: " + (arr1 == arr3) + "\tvs arr1.equals(arr3) = " + arr1.equals(arr3));
+        System.out.println("Arrays.equals(arr3, arr4))  = " + Arrays.equals(arr3, arr4) + "\tvs arr3 == aar4: " + (arr3 == arr4) + "\tvs arr3.equals(arr4) = " + arr3.equals(arr4));
         Arrays.sort(arr4);
-        System.out.println("Arrays.sort(arr4)  = " + Arrays.toString(arr4));
-        System.out.println("Arrays.equals(arr3, arr4))   =  " + Arrays.equals(arr3, arr4) + "\tvs arr3 == aar4: " + (arr3 == arr4));       //Once sorted, you can use binarySearch on the array
-        System.out.println("Arrays.binarySearch(arr4, 5) =  " + Arrays.binarySearch(arr4, 5));        
+        System.out.println("\nArrays.sort(arr4)  = " + Arrays.toString(arr4));
+        System.out.println("Arrays.equals(arr3, arr4))   =  " + Arrays.equals(arr3, arr4) + "\tvs arr3 == aar4: " + (arr3 == arr4) + "\tvs arr3.equals(arr4) = " + arr3.equals(arr4));       
+        
+        //Once sorted, you can use binarySearch on the array
+        System.out.println("\nArrays.binarySearch(arr4, 5) =  " + Arrays.binarySearch(arr4, 5));        
         System.out.println("Arrays.binarySearch(arr4, 8) =  " + Arrays.binarySearch(arr4, 8)); 
 
         Integer[][] arr5 = {{1, 2}, {3, 4}};
         Integer[][] arr6 = {{1, 2}, {3, 4}};
         Integer[][] arr7 = {{1, 2}, {5, 6}};
+        Integer[][] arr8 = arr7.clone();
 
-        System.out.println("arr5 deepEquals arr6:  = " + Arrays.deepEquals(arr5, arr6)); // true
+        System.out.println("\narr5 deepEquals arr6:  = " + Arrays.deepEquals(arr5, arr6)); // true
         System.out.println("arr5 deepEquals arr7:  =  " + Arrays.deepEquals(arr5, arr7)); // false
 
-        int[] arr8 = new int[10];
-        Arrays.fill(arr8, 99);
-        System.out.println("arr8 after Arrays.fill) = " + Arrays.toString(arr8));
+        System.out.println("arr7 deepEquals arr8:  =  " + Arrays.deepEquals(arr7, arr8)); // false  
+        arr8[0][1] = 30;
+        System.out.println("Arrays.toString(arr7)) = " + Arrays.toString(arr7[0]) + Arrays.toString(arr7[1]));    
+        System.out.println("Arrays.toString(arr8)) = " + Arrays.toString(arr8[0]) + Arrays.toString(arr8[1]));     
+        System.out.println("arr7 deepEquals arr8:  =  " + Arrays.deepEquals(arr7, arr8)); // false 
 
-        int[] arr9 = new int[5];
+        int[] arr9 = new int[10];
+        Arrays.fill(arr9, 99);
+        System.out.println("arr9 after Arrays.fill) = " + Arrays.toString(arr9));
+
+        int[] arr10 = new int[5];
         System.arraycopy(arr1,0,arr9,0,3);
-        System.out.println("Arrays.toString(arr9)   = " + Arrays.toString(arr9));
+        System.out.println("Arrays.toString(arr10)   = " + Arrays.toString(arr10));
 
-        int[] arr10 = arr1;
+        int[] arr11 = arr1;
         System.out.println("arr1.hashCode()  = " + arr1.hashCode());
-        System.out.println("arr10.hashCode() = " + arr10.hashCode());
+        System.out.println("arr11.hashCode() = " + arr11.hashCode());
         
         //ARRAYS - YOUR TURN #3
         int[] deck = new int[52];
