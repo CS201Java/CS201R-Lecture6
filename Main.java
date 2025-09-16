@@ -116,26 +116,14 @@ public class Main {
         //ARRAYS - YOUR TURN #3
         int[] deck = new int[52];
         //INITIALIZE DECK
-        for (int i = 0; i < deck.length; i++ ){
-            deck[i] = i;
-        }
+ 
         //SHUFFLE
-        for (int i = 0; i < deck.length; i++){
-            int temp = deck[i];
-            int tempPos = rand.nextInt(52);
-            deck[i] = deck[tempPos];
-            deck[tempPos] = temp;
-        }
+ 
         String[] suit = {"Hearts","Diamonds", "Spades", "Clubs"};
         String[] cards = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         
         //DEAL CARDS
-        int tempCard = deck[0];
-        int cardSuit = tempCard/13;
-        int cardValue = tempCard%13;
-        System.out.println(cards[cardValue] + " of " + suit[cardSuit]);
-
-
+ 
         //ARRAYLISTS
         ArrayList<Integer> myList = new ArrayList<>();
         myList.add(10);
@@ -143,6 +131,7 @@ public class Main {
         myList.add(0,40);   
         myList.add(1,90);
         System.out.println(myList); 
+
 
         myList.remove(2);    
         System.out.println(myList.size() + " = " + myList); 
@@ -194,7 +183,7 @@ public class Main {
         ArrayList<MyClass> myClassList3 = new ArrayList<>();   
         for (MyClass temp : myClassList)
             myClassList3.add(new MyClass(temp));
-            
+
         System.out.println("\nmyClassList3.hashCode() = " + myClassList3.hashCode()); 
         for (MyClass temp3 : myClassList3)
             System.out.println("temp3.hashCode()  = " + temp3.hashCode());        
