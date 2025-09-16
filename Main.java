@@ -22,12 +22,38 @@ public class Main {
         //ARRAYS - YOUR TURN #1
         //Write the pseudocode to initialize the 10 values in an array 
         //to random values between 5 and 15
-
+        int[] myList1 = new int[10];
+        Random rand = new Random();
+        for (int i = 0; i < 10; i++){
+            int tempRand = rand.nextInt(11) + 5;
+            myList1[i] = tempRand;
+            System.out.print(myList1[i] + " ");
+        }
+        System.out.println();
 
 
         //ARRAYS - YOUR TURN #2
         //Initialize an array to 20 random integer values between 10 and 20 (see #1)
         //Find the average of the even values over 15 in the array
+        int aveCounter = 0;
+        double ave = 0;
+        int[] myList10 = new int[20];
+        for (int i = 0; i < 20; i++){
+            int randValue = rand.nextInt(11) + 10;
+            myList10[i] = randValue;
+            if (myList10[i] >= 16 && myList10[i]%2  == 0){
+                ave += myList10[i];
+                aveCounter ++;
+            }
+        }
+        if (aveCounter > 0){
+            double aveTotal = ave/aveCounter;
+            System.out.println(aveTotal);
+        }
+        else
+            System.out.println("no even values over 15");
+
+
 
 
         //ARRAY METHODS
@@ -69,7 +95,10 @@ public class Main {
         System.out.println("arr7 deepEquals arr8:  =  " + Arrays.deepEquals(arr7, arr8)); // false  
         arr8[0][1] = 30;
         System.out.println("Arrays.toString(arr7)) = " + Arrays.toString(arr7[0]) + Arrays.toString(arr7[1]));    
-        System.out.println("Arrays.toString(arr8)) = " + Arrays.toString(arr8[0]) + Arrays.toString(arr8[1]));     
+        System.out.println("Arrays.toString(arr8)) = " + Arrays.toString(arr8[0]) + Arrays.toString(arr8[1])); 
+        System.out.println("\narr7 & arr8 hashCode() = " + arr7.hashCode() + " " + arr8.hashCode()); 
+        System.out.println("arr7[0].hashCode() = " + arr7[0].hashCode()); 
+        System.out.println("arr8[0].hashCode() = " + arr8[0].hashCode());    
         System.out.println("arr7 deepEquals arr8:  =  " + Arrays.deepEquals(arr7, arr8)); // false 
 
         int[] arr9 = new int[10];
@@ -77,7 +106,7 @@ public class Main {
         System.out.println("arr9 after Arrays.fill) = " + Arrays.toString(arr9));
 
         int[] arr10 = new int[5];
-        System.arraycopy(arr1,0,arr9,0,3);
+        System.arraycopy(arr10,0,arr9,0,3);
         System.out.println("Arrays.toString(arr10)   = " + Arrays.toString(arr10));
 
         int[] arr11 = arr1;
@@ -86,17 +115,25 @@ public class Main {
         
         //ARRAYS - YOUR TURN #3
         int[] deck = new int[52];
-        
         //INITIALIZE DECK
-         
+        for (int i = 0; i < deck.length; i++ ){
+            deck[i] = i;
+        }
         //SHUFFLE
-     
-        
+        for (int i = 0; i < deck.length; i++){
+            int temp = deck[i];
+            int tempPos = rand.nextInt(52);
+            deck[i] = deck[tempPos];
+            deck[tempPos] = temp;
+        }
         String[] suit = {"Hearts","Diamonds", "Spades", "Clubs"};
         String[] cards = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         
         //DEAL CARDS
-         
+        int tempCard = deck[0];
+        int cardSuit = tempCard/13;
+        int cardValue = tempCard%13;
+        System.out.println(cards[cardValue] + " of " + suit[cardSuit]);
 
 
         //ARRAYLISTS
@@ -131,11 +168,36 @@ public class Main {
             });
         System.out.println(myList2.size() + " = " + myList2); 
 
-
+        ArrayList<Integer> myList3 = new ArrayList<>(List.of(1,4,5,6,7,8,9));
 
         //YOUR TURN #4
-        //CREATE AN ARRAYLIST 
+        //CREATE AN ARRAYLIST OF MYCLASS
+        ArrayList<MyClass> myClassList = new ArrayList<>();
+        MyClass object1 = new MyClass("Frank", "Instein", 140);
+        MyClass object2 = new MyClass("Bugs", "Bunny", 14);
+        MyClass object3 = new MyClass("Yosemite", "Sam", 44);
+        myClassList.add(object1);
+        myClassList.add(object2);
+        myClassList.add(object3);
+        System.out.println("myClassList.hashCode()  = " + myClassList.hashCode()); 
+        for (MyClass temp : myClassList)
+            System.out.println("temp.hashCode()  = " + temp.hashCode());
 
+        //shallow copy
+        ArrayList<MyClass> myClassList2 = myClassList; //shallow copy 
+
+        System.out.println("\nmyClassList2.hashCode() = " + myClassList2.hashCode()); 
+        for (MyClass temp2 : myClassList2)
+            System.out.println("temp2.hashCode()  = " + temp2.hashCode());
+
+        //deep copy
+        ArrayList<MyClass> myClassList3 = new ArrayList<>();   
+        for (MyClass temp : myClassList)
+            myClassList3.add(new MyClass(temp));
+            
+        System.out.println("\nmyClassList3.hashCode() = " + myClassList3.hashCode()); 
+        for (MyClass temp3 : myClassList3)
+            System.out.println("temp3.hashCode()  = " + temp3.hashCode());        
     }
 }
         
