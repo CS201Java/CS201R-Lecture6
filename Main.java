@@ -13,6 +13,7 @@ public class Main {
         for (int i = 0; i < 10; i++)
             myList4[i] = i + 1;
         
+        System.out.print("Arrays Example 1:   ");
         for (int i = 0; i < 10; i++)
             System.out.print(myList4[i] + " ");
 
@@ -22,11 +23,12 @@ public class Main {
         //ARRAYS - YOUR TURN #1
         //Write the pseudocode to initialize the 10 values in an array 
         //to random values between 5 and 15
+        System.out.print("Arrays Example 2:   ");
         int[] myList1 = new int[10];
         Random rand = new Random();
         for (int i = 0; i < 10; i++){
-            int tempRand = rand.nextInt(11) + 5;
-            myList1[i] = tempRand;
+            //add code here
+
             System.out.print(myList1[i] + " ");
         }
         System.out.println();
@@ -39,12 +41,10 @@ public class Main {
         double ave = 0;
         int[] myList10 = new int[20];
         for (int i = 0; i < 20; i++){
+            //add code here
             int randValue = rand.nextInt(11) + 10;
-            myList10[i] = randValue;
-            if (myList10[i] >= 16 && myList10[i]%2  == 0){
-                ave += myList10[i];
-                aveCounter ++;
-            }
+
+            
         }
         if (aveCounter > 0){
             double aveTotal = ave/aveCounter;
@@ -59,13 +59,17 @@ public class Main {
         //ARRAY METHODS
         int[] arr1 = {1,2,3,4,5,6,7};
         int[] arr2 = arr1.clone();
+        int[] arr2b = arr2;
         int[] arr3 = {1,2,3,4,5,6,7};
         int[] arr4 = {7,6,5,4,3,2,1};
-        System.out.println("arr1.hashCode() = " + arr1.hashCode());
-        System.out.println("arr2.hashCode() = " + arr2.hashCode());
-        System.out.println("arr3.hashCode() = " + arr3.hashCode());
-        System.out.println("arr1.toString() = " + arr1.toString());
-        System.out.println("arr1.getClass()   = " + arr1.getClass());
+
+        System.out.println("arr1.hashCode()  = " + arr1.hashCode());
+        System.out.println("arr2.hashCode()  = " + arr2.hashCode());
+        System.out.println("arr2b.hashCode() = " + arr2b.hashCode());
+        System.out.println("arr3.hashCode()  = " + arr3.hashCode());
+
+        System.out.println("arr1.toString()  = " + arr1.toString());
+        System.out.println("arr1.getClass()  = " + arr1.getClass());
 
         System.out.println("\nArrays.toString(arr1)       = " + Arrays.toString(arr1));
         System.out.println("Arrays.toString(arr2)       = " + Arrays.toString(arr2));
@@ -106,25 +110,38 @@ public class Main {
         System.out.println("arr9 after Arrays.fill) = " + Arrays.toString(arr9));
 
         int[] arr10 = new int[5];
-        System.arraycopy(arr10,0,arr9,0,3);
+        System.arraycopy(arr9,0,arr10,0,3);
         System.out.println("Arrays.toString(arr10)   = " + Arrays.toString(arr10));
 
         int[] arr11 = arr1;
         System.out.println("arr1.hashCode()  = " + arr1.hashCode());
         System.out.println("arr11.hashCode() = " + arr11.hashCode());
         
-        //ARRAYS - YOUR TURN #3
-        int[] deck = new int[52];
-        //INITIALIZE DECK
- 
-        //SHUFFLE
  
         String[] suit = {"Hearts","Diamonds", "Spades", "Clubs"};
         String[] cards = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+
+        //ARRAYS - YOUR TURN #3
+        int[] deck = new int[52];
+        //INITIALIZE DECK
+        for (int i = 0; i < 52; i++)
+            deck[i]  = i;
+ 
+        //SHUFFLE
+        for (int i = 0; i < 52; i++){
+            //add code here
+        }
         
         //DEAL CARDS
+        int card1 = deck[0];
+        int card2 = deck[1];
+        System.out.println(card1 + " " + cards[card1%13] + " of " + suit[card1%4]);
+        System.out.println(card2 + " " + cards[card2%13] + " of " + suit[card2/13]);
+        for (int i = 0; i < 52; i++)
+          System.out.println(deck[i] + " " + cards[deck[i]%13] + " of " + suit[deck[i]/13]);
  
         //ARRAYLISTS
+        System.out.println("\nArrayList Examples:   ");
         ArrayList<Integer> myList = new ArrayList<>();
         myList.add(10);
         myList.add(50);
@@ -138,6 +155,14 @@ public class Main {
         myList.add(80);
         myList.add(20);
         System.out.println(myList.size() + " = " + myList); 
+
+        //Your Turn #4
+        ArrayList<Character> alpha = new ArrayList<>();
+        for (char ch1 = 'A'; ch1 <= 'Z'; ch1++){
+            alpha.add(ch1);
+            System.out.print(ch1 + " ");
+        }
+        System.out.println();
 
         //ARRAYLIST SORT IN ASCENDING ORDER USING COMPARATOR
         myList.sort(Comparator.naturalOrder());
@@ -158,6 +183,9 @@ public class Main {
         System.out.println(myList2.size() + " = " + myList2); 
 
         ArrayList<Integer> myList3 = new ArrayList<>(List.of(1,4,5,6,7,8,9));
+        ArrayList<Integer> myList8 = myList3; 
+        System.out.println("\nmyList3.hashCode()  = " + myList3.hashCode());
+        System.out.println("myList8.hashCode()  = " + myList8.hashCode());
 
         //YOUR TURN #4
         //CREATE AN ARRAYLIST OF MYCLASS
