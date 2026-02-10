@@ -13,7 +13,7 @@ public class Main {
         for (int i = 0; i < 10; i++)
             myList4[i] = i + 1;
         
-        System.out.print("Arrays Example 1:   ");
+        System.out.print("ARRAYS EXAMPLE 1:   ");
         for (int i = 0; i < 10; i++)
             System.out.print(myList4[i] + " ");
 
@@ -23,13 +23,12 @@ public class Main {
         //ARRAYS - YOUR TURN #1
         //Write the pseudocode to initialize the 10 values in an array 
         //to random values between 5 and 15
-        System.out.print("Arrays Example 2:   ");
-        int[] myList1 = new int[10];
+        System.out.print("\nARRAYS EXAMPLE 2:   ");
         Random rand = new Random();
-        for (int i = 0; i < 10; i++){
-            //add code here
 
-            System.out.print(myList1[i] + " ");
+
+        for (int i = 0; i < 10; i++){
+
         }
         System.out.println();
 
@@ -37,26 +36,19 @@ public class Main {
         //ARRAYS - YOUR TURN #2
         //Initialize an array to 20 random integer values between 10 and 20 (see #1)
         //Find the average of the even values over 15 in the array
-        int aveCounter = 0;
-        double ave = 0;
-        int[] myList10 = new int[20];
+        System.out.print("\nARRAYS EXAMPLE 3:   ");
+
         for (int i = 0; i < 20; i++){
             //add code here
-            int randValue = rand.nextInt(11) + 10;
 
             
         }
-        if (aveCounter > 0){
-            double aveTotal = ave/aveCounter;
-            System.out.println(aveTotal);
-        }
-        else
-            System.out.println("no even values over 15");
-
 
 
 
         //ARRAY METHODS
+         System.out.print("\nARRAY METHODS:   ");
+
         int[] arr1 = {1,2,3,4,5,6,7};
         int[] arr2 = arr1.clone();
         int[] arr2b = arr2;
@@ -76,6 +68,7 @@ public class Main {
         arr2[3] = 17;
         System.out.println("\nArrays.toString(arr1)       = " + Arrays.toString(arr1));
         System.out.println("Arrays.toString(arr2)       = " + Arrays.toString(arr2));        
+        System.out.println("Arrays.toString(arr2b)      = " + Arrays.toString(arr2b));        
 
         System.out.println("\nArrays.equals(arr1, arr2))  = " + Arrays.equals(arr1, arr2) + "\tvs arr1 == aar2: " + (arr1 == arr2) + "\tvs arr1.equals(arr2) = " + arr1.equals(arr2));
         System.out.println("Arrays.equals(arr1, arr3))  = " + Arrays.equals(arr1, arr3) + "\tvs arr1 == aar3: " + (arr1 == arr3) + "\tvs arr1.equals(arr3) = " + arr1.equals(arr3));
