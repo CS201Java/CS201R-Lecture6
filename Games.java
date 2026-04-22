@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Games {
 
@@ -12,25 +12,17 @@ public class Games {
 
         boolean keepPlaying = true;
         while (keepPlaying){
-            int compGuess = rand.nextInt(3);
-
+            
             String userGuessString;
             System.out.println("Enter your choice: 0(Rock), 1(Paper), 2(Scissors): ");
             userGuessString = scan.nextLine();
             int userGuess = verifyGuess(userGuessString);
-            while (userGuess == -1){
-                System.out.println("Enter valid choice: ");
-                userGuess = verifyGuess(userGuessString);
-            }
-            System.out.println("The computer guessed: " + compGuess);
-            if (compGuess == userGuess) System.out.println("You tied!");
-            else if (compGuess == 0 && userGuess == 1) System.out.println ("paper covers rock - you win!");
-            else if (compGuess == 0 && userGuess == 2) System.out.println("rock crushes scissors - you lose!");
-        
-            System.out.println("Continue? y/n");
-            String contString = scan.nextLine();
-            if (contString.trim().toUpperCase().charAt(0) != 'Y')
-                keepPlaying = false;
+            //complete logic for RPS
+ 
+
+
+            
+ 
         }
 
     }
