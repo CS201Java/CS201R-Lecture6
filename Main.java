@@ -1,213 +1,154 @@
-import java.util.Random;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
  
 public class Main {
-    public static void main(String[] args) {
 
-        //ARRAY EXAMPLE
-        int[] myList4 = new int[10];
-        for (int i = 0; i < 10; i++)
-            myList4[i] = i + 1;
-        
-        System.out.print("ARRAYS EXAMPLE 1:   ");
-        for (int i = 0; i < 10; i++)
-            System.out.print(myList4[i] + " ");
+    public static void main (String[] args){
 
+        //write this 3 times>>
+        int sum = 0;
+        for (int i = 1; i <= 10; i++)
+            sum += i;
+        System.out.println("\n\nSum from 1 to 10 is " + sum);
+        sum = 0;
+        for (int i = 20; i <= 37; i++)
+            sum += i;
+        System.out.println("Sum from 20 to 37 is " + sum);
+        sum = 0;
+        for (int i = 35; i <= 49; i++)
+            sum += i;
+        System.out.println("Sum from 35 to 49 is " + sum);
+
+        //write this one time and send the values
+        sumValues(1,10);
+        sumValues(20,37);
+        sumValues(35,49);
+ 
+        //using max function 
+        //will determine which max function to use
+        System.out.println("\n\nThe maximum of 30 and 54 is: " + (max(30,54)));
+        System.out.println("The maximum of 3.0 and 5.4 is: " + (max(3.0,5.4)));
+        System.out.println("The maximum of 30 and 5.4 is: " + (max(30,5.4)));
+        System.out.println("The maximum of 30, 92 and 54 is: " + (max(max(30,92),54)));
+
+        //pass by value
+        int a = 10, b = 5;
+        System.out.println("\n\na = " + a + " and b = " + b);
+        swap (a,b);
+	    System.out.println("a = " + a + " and b = " + b);
+
+        //pass by value using wrapper class(reference)
+        IntWrapper c = new IntWrapper(10);
+        IntWrapper d = new IntWrapper(5);
+        System.out.println("\n\nc = " + c.value + " and d = " + d.value);
+        swap (c,d);
+        System.out.println("c = " + c.value + " and d = " + d.value);
+
+        //pass by value (array reference)
+        int[] arr1 = {1,2,3,4,5};
+        printArray(arr1);
+        swap (arr1);
+        printArray(arr1);
         System.out.println();
 
+        swap (arr1);  //reset array
+      	printArray(arr1);
+        newArray (arr1);
+  	    printArray(arr1);
 
-        //ARRAYS - YOUR TURN #1
-        //Write the pseudocode to initialize the 10 values in an array 
-        //to random values between 5 and 15
-        System.out.print("\nARRAYS EXAMPLE 2:   ");
-        Random rand = new Random();
-
-
-        for (int i = 0; i < 10; i++){
-
-        }
-        System.out.println();
-
-
-        //ARRAYS - YOUR TURN #2
-        //Initialize an array to 20 random integer values between 10 and 20 (see #1)
-        //Find the average of the even values over 15 in the array
-        System.out.print("\nARRAYS EXAMPLE 3:   ");
-
-        for (int i = 0; i < 20; i++){
-            //add code here
-
-            
-        }
-
-
-
-        //ARRAY METHODS
-         System.out.print("\nARRAY METHODS:   ");
-
-        int[] arr1 = {1,2,3,4,5,6,7};
-        int[] arr2 = arr1.clone();
-        int[] arr2b = arr2;
-        int[] arr3 = {1,2,3,4,5,6,7};
-        int[] arr4 = {7,6,5,4,3,2,1};
-
-        System.out.println("arr1.hashCode()  = " + arr1.hashCode());
-        System.out.println("arr2.hashCode()  = " + arr2.hashCode());
-        System.out.println("arr2b.hashCode() = " + arr2b.hashCode());
-        System.out.println("arr3.hashCode()  = " + arr3.hashCode());
-
-        System.out.println("arr1.toString()  = " + arr1.toString());
-        System.out.println("arr1.getClass()  = " + arr1.getClass());
-
-        System.out.println("\nArrays.toString(arr1)       = " + Arrays.toString(arr1));
-        System.out.println("Arrays.toString(arr2)       = " + Arrays.toString(arr2));
-        arr2[3] = 17;
-        System.out.println("\nArrays.toString(arr1)       = " + Arrays.toString(arr1));
-        System.out.println("Arrays.toString(arr2)       = " + Arrays.toString(arr2));        
-        System.out.println("Arrays.toString(arr2b)      = " + Arrays.toString(arr2b));        
-
-        System.out.println("\nArrays.equals(arr1, arr2))  = " + Arrays.equals(arr1, arr2) + "\tvs arr1 == aar2: " + (arr1 == arr2) + "\tvs arr1.equals(arr2) = " + arr1.equals(arr2));
-        System.out.println("Arrays.equals(arr1, arr3))  = " + Arrays.equals(arr1, arr3) + "\tvs arr1 == aar3: " + (arr1 == arr3) + "\tvs arr1.equals(arr3) = " + arr1.equals(arr3));
-        System.out.println("Arrays.equals(arr3, arr4))  = " + Arrays.equals(arr3, arr4) + "\tvs arr3 == aar4: " + (arr3 == arr4) + "\tvs arr3.equals(arr4) = " + arr3.equals(arr4));
-        Arrays.sort(arr4);
-        System.out.println("\nArrays.sort(arr4)  = " + Arrays.toString(arr4));
-        System.out.println("Arrays.equals(arr3, arr4))   =  " + Arrays.equals(arr3, arr4) + "\tvs arr3 == aar4: " + (arr3 == arr4) + "\tvs arr3.equals(arr4) = " + arr3.equals(arr4));       
-        
-        //Once sorted, you can use binarySearch on the array
-        System.out.println("\nArrays.binarySearch(arr4, 5) =  " + Arrays.binarySearch(arr4, 5));        
-        System.out.println("Arrays.binarySearch(arr4, 8) =  " + Arrays.binarySearch(arr4, 8)); 
-
-        Integer[][] arr5 = {{1, 2}, {3, 4}};
-        Integer[][] arr6 = {{1, 2}, {3, 4}};
-        Integer[][] arr7 = {{1, 2}, {5, 6}};
-        Integer[][] arr8 = arr7.clone();
-
-        System.out.println("\narr5 deepEquals arr6:  = " + Arrays.deepEquals(arr5, arr6)); // true
-        System.out.println("arr5 deepEquals arr7:  =  " + Arrays.deepEquals(arr5, arr7)); // false
-
-        System.out.println("arr7 deepEquals arr8:  =  " + Arrays.deepEquals(arr7, arr8)); // false  
-        arr8[0][1] = 30;
-        System.out.println("Arrays.toString(arr7)) = " + Arrays.toString(arr7[0]) + Arrays.toString(arr7[1]));    
-        System.out.println("Arrays.toString(arr8)) = " + Arrays.toString(arr8[0]) + Arrays.toString(arr8[1])); 
-        System.out.println("\narr7 & arr8 hashCode() = " + arr7.hashCode() + " " + arr8.hashCode()); 
-        System.out.println("arr7[0].hashCode() = " + arr7[0].hashCode()); 
-        System.out.println("arr8[0].hashCode() = " + arr8[0].hashCode());    
-        System.out.println("arr7 deepEquals arr8:  =  " + Arrays.deepEquals(arr7, arr8)); // false 
-
-        int[] arr9 = new int[10];
-        Arrays.fill(arr9, 99);
-        System.out.println("arr9 after Arrays.fill) = " + Arrays.toString(arr9));
-
-        int[] arr10 = new int[5];
-        System.arraycopy(arr9,0,arr10,0,3);
-        System.out.println("Arrays.toString(arr10)   = " + Arrays.toString(arr10));
-
-        int[] arr11 = arr1;
-        System.out.println("arr1.hashCode()  = " + arr1.hashCode());
-        System.out.println("arr11.hashCode() = " + arr11.hashCode());
-        
- 
-        String[] suit = {"Hearts","Diamonds", "Spades", "Clubs"};
-        String[] cards = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-
-        //ARRAYS - YOUR TURN #3
-        int[] deck = new int[52];
-        //INITIALIZE DECK
-        for (int i = 0; i < 52; i++)
-            deck[i]  = i;
- 
-        //SHUFFLE
-        for (int i = 0; i < 52; i++){
-            //add code here
-        }
-        
-        //DEAL CARDS
-        int card1 = deck[0];
-        int card2 = deck[1];
-        System.out.println(card1 + " " + cards[card1%13] + " of " + suit[card1%4]);
-        System.out.println(card2 + " " + cards[card2%13] + " of " + suit[card2/13]);
-        for (int i = 0; i < 52; i++)
-          System.out.println(deck[i] + " " + cards[deck[i]%13] + " of " + suit[deck[i]/13]);
- 
-        //ARRAYLISTS
-        System.out.println("\nArrayList Examples:   ");
-        ArrayList<Integer> myList = new ArrayList<>();
-        myList.add(10);
-        myList.add(50);
-        myList.add(0,40);   
-        myList.add(1,90);
-        System.out.println(myList); 
-
-
-        myList.remove(2);    
-        System.out.println(myList.size() + " = " + myList); 
-        myList.add(80);
-        myList.add(20);
-        System.out.println(myList.size() + " = " + myList); 
-
-        //Your Turn #4
-        ArrayList<Character> alpha = new ArrayList<>();
-        for (char ch1 = 'A'; ch1 <= 'Z'; ch1++){
-            alpha.add(ch1);
-            System.out.print(ch1 + " ");
-        }
-        System.out.println();
-
-        //ARRAYLIST SORT IN ASCENDING ORDER USING COMPARATOR
-        myList.sort(Comparator.naturalOrder());
-        System.out.println(myList.size() + " = " + myList); 
-
-        //ARRAYLIST SORT IN DESCENDING ORDER USING COMPARATOR
-        myList.sort(Comparator.reverseOrder());
-        System.out.println(myList.size() + " = " + myList); 
-
-        //ARRAYLIST SORT IN EVEN NUMBERS FIRST
-        ArrayList<Integer> myList2 = new ArrayList<>(Arrays.asList(5,2,9,1,3,10,6,11));
-        myList2.sort((a, b) -> {
-                // Even numbers come first
-                if (a % 2 == 0 && b % 2 != 0) return -1;
-                if (a % 2 != 0 && b % 2 == 0) return 1;
-                return a - b;  // Normal comparison if both even or both odd
-            });
-        System.out.println(myList2.size() + " = " + myList2); 
-
-        ArrayList<Integer> myList3 = new ArrayList<>(List.of(1,4,5,6,7,8,9));
-        ArrayList<Integer> myList8 = myList3; 
-        System.out.println("\nmyList3.hashCode()  = " + myList3.hashCode());
-        System.out.println("myList8.hashCode()  = " + myList8.hashCode());
-
-        //YOUR TURN #4
-        //CREATE AN ARRAYLIST OF MYCLASS
-        ArrayList<MyClass> myClassList = new ArrayList<>();
-        MyClass object1 = new MyClass("Frank", "Instein", 140);
-        MyClass object2 = new MyClass("Bugs", "Bunny", 14);
-        MyClass object3 = new MyClass("Yosemite", "Sam", 44);
-        myClassList.add(object1);
-        myClassList.add(object2);
-        myClassList.add(object3);
-        System.out.println("myClassList.hashCode()  = " + myClassList.hashCode()); 
-        for (MyClass temp : myClassList)
-            System.out.println("temp.hashCode()  = " + temp.hashCode());
-
-        //shallow copy
-        ArrayList<MyClass> myClassList2 = myClassList; //shallow copy 
-
-        System.out.println("\nmyClassList2.hashCode() = " + myClassList2.hashCode()); 
-        for (MyClass temp2 : myClassList2)
-            System.out.println("temp2.hashCode()  = " + temp2.hashCode());
-
-        //deep copy
-        ArrayList<MyClass> myClassList3 = new ArrayList<>();   
-        for (MyClass temp : myClassList)
-            myClassList3.add(new MyClass(temp));
-
-        System.out.println("\nmyClassList3.hashCode() = " + myClassList3.hashCode()); 
-        for (MyClass temp3 : myClassList3)
-            System.out.println("temp3.hashCode()  = " + temp3.hashCode());        
+        //pass by value an object(a note on Strings)
+        String str1 = "Bubba Wubba";
+        System.out.println(str1);
+        changeString(str1);
+        System.out.println(str1);
+   
     }
+
+    public static void sumValues(int i1, int i2) {
+        int result = 0;
+        for (int i = i1; i <= i2; i++)
+            result += i;
+
+        System.out.println("\n\nThe sum of " + i1 + " and " + i2 + " is " + result);
+    }
+
+
+    /** Find the max of two integer values */
+    public static int max(int num1, int num2) {
+        System.out.println("max(int num1, int num2)");
+        if (num1 > num2)
+        return num1;
+        else
+        return num2;
+    }
+     
+    /** Find the max of two double values */
+    public static double max(double num1, double num2) {
+        System.out.println("max(double num1, double num2)");
+        if (num1 > num2)
+            return num1;
+        else
+            return num2;
+    }
+
+    /** Find the max of two integer values */
+    public static double max(int num1, double num2) {
+        System.out.println("max(int num1, double num2)");
+        if (num1 > num2)
+            return num1;
+        else
+            return num2;
+    }
+
+    /** swap 2 integers */
+    public static void swap(int x, int y) {
+  	    System.out.println("Using primitive");
+	    int temp = x;
+	    x = y;
+	    y = temp; 
+    }
+
+    static class IntWrapper{
+        int value;                              // attribute
+        IntWrapper(int v) {this.value = v;}     //constructor
+    }  
+
+    /** swap 2 integers in wrapper class*/
+    public static void swap(IntWrapper x, IntWrapper y) {
+	    System.out.println("Using intWrapper");
+	    int temp = x.value;
+        x.value = y.value;
+	    y.value = temp; 
+    }
+
+    /** swap 2 values in array */
+    public static void swap(int[] arr) {
+   	    System.out.println("Using array class");
+	    int temp = arr[0];
+	    arr[0] = arr[arr.length - 1];
+	    arr[arr.length - 1] = temp; 
+    }
+    
+    /** create a new array */
+    public static void newArray(int[] arr){
+   	    System.out.println("Using newArray");
+	    int tempArray[] = {11,12,13,14,15};
+	    arr = tempArray; 
+        printArray(arr);
+    }
+
+    /** print the array */
+    public static void printArray(int[] arr) {
+	    for (int i = 0; i < arr.length ; i++)
+    	    System.out.print(arr[i] + " ");
+        System.out.println();    
+     
+    }
+
+    //** change string */
+    public static void changeString(String str) {
+	    str += " is the best!";   //this is creating a new string - strings are immutable
+        System.out.println(str);    
+     
+    }
+ 
 }
-        
